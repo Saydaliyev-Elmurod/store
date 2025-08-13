@@ -5,9 +5,11 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
     <changeSet id="create-tables" author="elmurod">
+        <preConditions onFail="MARK_RAN">
+            <dbms type="postgresql"/>
+        </preConditions>
         <sql>
-            CREATE
-            EXTENSION IF NOT EXISTS "uuid-ossp";
+            CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
         </sql>
     </changeSet>
 </databaseChangeLog>
